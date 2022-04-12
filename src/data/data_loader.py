@@ -3,7 +3,7 @@ import zipfile
 from glob2 import glob
 # import os
 url = 'https://test-backet-dsti.s3.amazonaws.com/kagglecatsanddogs_3367a.zip'
-pathdir = '/content/classication/data/raw'
+pathdir = '/classication/data/raw'
 
 def download_zip(pathdir, url):
   wget.download(url, pathdir)
