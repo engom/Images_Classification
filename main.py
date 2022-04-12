@@ -51,3 +51,8 @@ if __name__=='__main__':
   model.fit(train_ds, epochs=epochs, callbacks=callbacks, validation_data=val_ds, verbose=2)
   # save model to s3
   my_bucket.upload_file(model.save('model.h5'))
+  
+  # Track the model with mlflow
+  TRACKING_URI = "http://52.215.94.6:5000/"
+  mlflow.tracking.set_tracking_uri(TRACKING_URI)
+  mlflow.start_run()
