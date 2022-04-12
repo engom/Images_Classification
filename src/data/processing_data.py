@@ -37,4 +37,4 @@ def data_processor(dti):
                                                                 image_size=image_size,
                                                                 batch_size=batch_size,
                                                                 )
-    
+    return train_ds, val_ds
