@@ -13,6 +13,7 @@ from tensorflow import keras
 import tensorflow as tf
 import os
 import boto3
+import mlflow  # from mlflow import log_metric, log_param, log_artifacts
 
 # creation a session to connect to s3
 session = boto3.Session(
@@ -55,6 +56,6 @@ if __name__=='__main__':
   my_bucket.upload_file(model.save('model.h5'))
   
   # Track the model with mlflow
-  TRACKING_URI = "http://52.215.94.6:5000/"
+  TRACKING_URI = "http://44.198.184.229:5000/"
   mlflow.tracking.set_tracking_uri(TRACKING_URI)
   mlflow.start_run()
