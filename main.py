@@ -14,8 +14,6 @@ import tensorflow as tf
 import os
 import boto3
 
-
-
 # creation a session to connect to s3
 session = boto3.Session(
                         aws_access_key_id=secrets.AWSACCESSKEYID,
@@ -34,14 +32,14 @@ import src.data.processing_data as processor
 # link of source data
 src = 'https://test-backet-dsti.s3.amazonaws.com/kagglecatsanddogs_3367a.zip'
 # path of destination director
-dti = '/content/classication/data/raw'
+dst = '/content/classication/data/raw'
 
 # main program starts
 if __name__=='__main__':
   # load and unzip
-  loader.download_zip(dti, src)
+  loader.download_zip(dst, src)
   # data processing
-  processor.data_processor(dti)
+  processor.data_processor(dst)
   # build model
   model = modeler.make_model(input_shape=image_size + (3,), num_classes=2) 
   # train model
