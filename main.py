@@ -40,7 +40,7 @@ if __name__=='__main__':
   # load and unzip
   loader.download_zip(dst, src)
   # data processing
-  processor.data_processor(dst)
+  train_ds, val_ds = processor.data_processor(dst)
   # build model
   image_size = (180, 180)
   batch_size = 32
@@ -51,7 +51,7 @@ if __name__=='__main__':
   model.compile(optimizer=keras.optimizers.Adam(1e-3),
                 loss="binary_crossentropy",
                 metrics=["accuracy"],)
-  model.fit(train_ds, epochs=epochs, callbacks=callbacks, validation_data=val_ds, verbose=2)
+  model.fit(train_ds, epochs=epochs, callbacks=callbacks, validation_data=val_ds, verbose=4)
   # save model to s3
   my_bucket.upload_file(model.save('model.h5'))
   
