@@ -32,7 +32,7 @@ import src.data.processing_data as processor
 # link of source data
 src = 'https://test-backet-dsti.s3.amazonaws.com/kagglecatsanddogs_3367a.zip'
 # path of destination director
-dst = '/content/classication/data/raw'
+dst = '/classication/data/raw'
 
 # main program starts
 if __name__=='__main__':
