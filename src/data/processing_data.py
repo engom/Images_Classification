@@ -2,7 +2,7 @@ def data_processor(dti):
     num_skipped = 0
     for folder_name in ("Cat", "Dog"):
         folder_path = os.path.join(f"{dti}/PetImages", folder_name)
-            or fname in os.listdir(folder_path):
+        for fname in os.listdir(folder_path):
             fpath = os.path.join(folder_path, fname)
             try:
                 fobj = open(fpath, "rb")
