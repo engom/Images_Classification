@@ -46,7 +46,7 @@ if __name__=='__main__':
   batch_size = 32
   model = modeler.make_model(input_shape=image_size + (3,), num_classes=2) 
   # train model
-  epochs = 50
+  epochs = 5
   callbacks = [keras.callbacks.ModelCheckpoint("save_at_{epoch}.h5"), ]
   model.compile(optimizer=keras.optimizers.Adam(1e-3),
                 loss="binary_crossentropy",
