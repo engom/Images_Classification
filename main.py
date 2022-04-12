@@ -12,6 +12,20 @@ import matplotlib.pyplot as plt
 from tensorflow import keras
 import tensorflow as tf
 import os
+import boto3
+
+
+
+# creation a session to connect to s3
+session = boto3.Session(
+                        aws_access_key_id=secrets.AWSACCESSKEYID,
+                        aws_secret_access_key=secrets.AWSSECRETKEY,
+                        region_name='us-east-1'
+                        )
+
+s3 = session.resource('s3')
+# specify the bucket_name
+my_bucket = s3.Bucket('test-backet-dsti')
 
 # import codes
 import src.data.data_loader as loader
@@ -27,7 +41,7 @@ if __name__=='__main__':
   # load and unzip
   loader.download_zip(dti, src)
   # data processing
-  processor.data_pressor(dti)
+  processor.data_processor(dti)
   # build model
   model = modeler.make_model(input_shape=image_size + (3,), num_classes=2) 
   # train model
@@ -37,3 +51,5 @@ if __name__=='__main__':
                 loss="binary_crossentropy",
                 metrics=["accuracy"],)
   model.fit(train_ds, epochs=epochs, callbacks=callbacks, validation_data=val_ds, verbose=2)
+  # save model to s3
+  my_bucket.upload_file(model.save('model.h5'))
