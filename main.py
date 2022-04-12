@@ -41,6 +41,8 @@ if __name__=='__main__':
   # data processing
   processor.data_processor(dst)
   # build model
+  image_size = (180, 180)
+  batch_size = 32
   model = modeler.make_model(input_shape=image_size + (3,), num_classes=2) 
   # train model
   epochs = 50
