@@ -1,5 +1,5 @@
 import os
-
+import tensorflow as tf
 def data_processor(dti):
     num_skipped = 0
     for folder_name in ("Cat", "Dog"):
