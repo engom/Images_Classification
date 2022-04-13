@@ -33,11 +33,11 @@ import src.data.processing_data as processor
 # link of source data
 src = 'https://test-backet-dsti.s3.amazonaws.com/kagglecatsanddogs_3367a.zip'
 # path of destination director
-<<<<<<< HEAD
+#<<<<<<< HEAD
 dst = './data/raw'
 =======
-dst = '/home/ubuntu/project/classification/data/raw'
->>>>>>> ca356fbd7375eb98181dfc758105a03f04f83b17
+#dst = '/home/ubuntu/project/classification/data/raw'
+#>>>>>>> ca356fbd7375eb98181dfc758105a03f04f83b17
 
 def push_mlflow(TRACKING_URI, metric_name, value, run_name = 'Default'):
     """
