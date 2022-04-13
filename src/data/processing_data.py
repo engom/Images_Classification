@@ -1,3 +1,5 @@
+import os
+import tensorflow as tf
 def data_processor(dti):
     num_skipped = 0
     for folder_name in ("Cat", "Dog"):
@@ -35,4 +37,4 @@ def data_processor(dti):
                                                                 image_size=image_size,
                                                                 batch_size=batch_size,
                                                                 )
-    
+    return train_ds, val_ds

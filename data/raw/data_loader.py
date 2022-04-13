@@ -5,7 +5,11 @@ import os
 from time import sleep
 
 url = 'https://test-backet-dsti.s3.amazonaws.com/kagglecatsanddogs_3367a.zip'
+<<<<<<< HEAD
 pathdir = './AWS/model_deploy/classification/data/raw'
+=======
+pathdir = './data/raw'
+>>>>>>> ca356fbd7375eb98181dfc758105a03f04f83b17
 
 def download_zip(pathdir, url):
   if os.path.exists(pathdir):
@@ -28,6 +32,7 @@ if __name__=='__main__':
   print("Downloading starts ...")
   download_zip(pathdir, url)
   print('Zip done !')
+<<<<<<< HEAD
 
 #client= mlflow.tracking.MlflowClient("ec2-52-215-94-6.eu-west-1.compute.amazonaws.com:5000")
 #client= mlflow.tracking.MlflowClient("ec2-52-215-94-6.eu-west-1.compute.amazonaws.com:5000")
@@ -38,3 +43,5 @@ if __name__=='__main__':
 # zip model and copy it s3 bucket
 # aws s3 cp model_ec2.zip s3://test-backet-dsti/ --region us-east-1
 # remove the data after
+=======
+>>>>>>> ca356fbd7375eb98181dfc758105a03f04f83b17
